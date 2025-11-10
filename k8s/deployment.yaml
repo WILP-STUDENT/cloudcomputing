@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eks-ui-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: eks-ui-demo
+  template:
+    metadata:
+      labels:
+        app: eks-ui-demo
+    spec:
+      containers:
+        - name: eks-ui-demo
+          image: 920971363988.dkr.ecr.us-east-1.amazonaws.com/simple-ui:latest
+          ports:
+            - containerPort: 80
